@@ -5,8 +5,8 @@ A set of useful tools to monitor your Arweave node and gather information quickl
 Node.js https://nodejs.org
 
 # Installation
-1. Git clone or download this repository
-2. run ```npm install``` in folder to download dependencies
+1. Git clone this repo ```git clone https://github.com/francesco-adamo/arweave-tools``` or download ZIP file.
+2. run ```npm install``` in folder to download required dependencies.
 
 # Usage
 1. Arweave Monitor<br/>
