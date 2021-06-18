@@ -1,0 +1,19 @@
+{
+  "author": "Francesco Adamo",
+  "name": "arweave-tools",
+  "version": "1.0",
+  "description": "A set of useful tools to monitor your Arweave node and gather information quickly",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "commander": "^7.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/francesco-adamo/arweave-tools"
+  },
+  "keywords": [
+    "arweave",
+    "mining",
+    "crypto"
+  ]
+}
