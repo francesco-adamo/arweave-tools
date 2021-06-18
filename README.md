@@ -13,7 +13,7 @@ Node.js https://nodejs.org
 Run ```node monitor``` while Arweave is running to print detailed information about your node and syncing status, with estimates on download speed and completion times. By default it will update every minute. Run ```node monitor -h``` for advanced configuration.
 
 2. SPoRA Hashrate calculator<br/>
-Run ```node calculator -r <your_randomx_hashrate>``` to estimate your SPoRA hashrate given your randomx h/s (from benchmark) and your current share of the weave. It currently requires your Arweave node to be running to work.
+Run ```node calculator -r <your_randomx_hashrate>``` to estimate your SPoRA hashrate given your randomx h/s (from benchmark) and your current share of the weave (from your running node and Arweave network).
 
 3. More tools coming soon!
 
