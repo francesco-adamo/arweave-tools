@@ -18,5 +18,5 @@ Run ```node calculator -r <your_randomx_hashrate>``` to estimate your SPoRA hash
 3. More tools coming soon!
 
 # Known issues
-Sometimes the network sends inaccurate data. If the software detects it and prints an error message just wait for the next update (if running monitor) or just launch the tool again (if running calculator).<br/>
-The hashrate calcluations are not very accurate and overestimate the actual h/s when running the miner. They are calculated using the formula ```randomx/(1 + total_weave/your_index) ``` and will be updated once a better one is found.
+Sometimes the network sends inaccurate data. If the software detects it and prints an error message just wait for the next update (if running monitor) or just launch the tool again (if running calculator).<br/><br/>
+The hashrate calculations are not very accurate and overestimate the actual SPoRA h/s when running the miner. They are calculated using the formula ```randomx/(1 + total_weave/your_index) ``` and will be updated once a better one is found.
