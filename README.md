@@ -2,7 +2,7 @@
 A set of useful tools to monitor your Arweave node and gather information quickly.
 
 # Requirements
-Node.js https://nodejs.org (https://github.com/nodesource/distributions/blob/master/README.md)
+Node.js https://nodejs.org
 
 # Installation
 1. Git clone or download this repository
