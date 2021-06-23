@@ -18,5 +18,8 @@ Run ```node benchmark -d <mounted_drive>``` to calculate your disk IOPS and rand
 3. SPoRA Hashrate calculator <br/>
 Run ```node calculator -r <your_randomx_hashrate> -s <random_read_GiB/s>``` to estimate your SPoRA hashrate given your randomx h/s (from arweave randomx-benchmark), your disk random read speeds in GiB/s (from included benchmark tool) and your current share of the weave (from your running node and Arweave network). If run with parameter ```-w <your_share_of_the_weave>``` it will work fully offline without requiring a running node nor an internet connection.
 
+# Updates
+06/23/21: Benchmark tool added. Calculator tool updated to V1.1 with a new, more accurate, estimation formula.
+
 # Known issues
 Sometimes the network sends inaccurate data. If the software detects it and prints an error message just wait for the next update (if running the monitor tool) or just launch the tool again.
