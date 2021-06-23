@@ -10,7 +10,7 @@ Node.js https://nodejs.org
 
 # Usage
 1. Arweave Monitor <br/>
-Run ```node monitor``` while Arweave is running to print detailed information about your node and syncing status, with estimates on download speed and completion times. By default it will update every minute. Run ```node monitor -h``` for advanced configuration.
+Run ```node monitor``` while Arweave is running to print detailed information about your node and syncing status, with estimates on download speeds and completion times. By default it will update every minute. Run ```node monitor -h``` for advanced configuration.
 
 2. Disk random read speed benchmark <br/>
 Run ```node benchmark -d <mounted_drive>``` to calculate your disk IOPS and random read speed. The latter can be used with the calculator tool below.
