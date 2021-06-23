@@ -22,4 +22,4 @@ Run ```node calculator -r <your_randomx_hashrate> -s <random_read_GiB/s>``` to e
 06/23/21: Benchmark tool added. Calculator tool updated to V1.1 with a new, more accurate, estimation formula.
 
 # Known issues
-Sometimes the network sends inaccurate data. If the software detects it and prints an error message just wait for the next update (if running the monitor tool) or just launch the tool again.
+Sometimes the network sends inaccurate data. When the software detects it and prints an error message just wait for the next cycle update (if running the monitor tool) or just launch the tool again.
