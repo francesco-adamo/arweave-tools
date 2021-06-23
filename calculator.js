@@ -8,7 +8,7 @@ console.log('+-------------------------------+');
 console.log();
 
 // CHANGELOG
-// 06/23/21 V1.1: included disk benchmark, new calculator formula
+// 06/23/21 V1.1: updated the calculator formula
 // 06/17/21 V1.0: initial public release
 
 const { program } = require('commander');
