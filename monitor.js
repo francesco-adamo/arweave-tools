@@ -1,26 +1,26 @@
 const axios = require('axios');
-const { program } = require('commander');
-
-program.option('-i, --refresh-interval <sec>', 'local data refresh time, seconds', 60);
-program.option('-t, --refresh-totals <min>', 'network data refresh time, minutes', 10);
-program.option('-a, --averages-stack <min>', 'time stack for averages calculation, minutes', 60);
-
-program.parse(process.argv);
-const options = program.opts();
 
 console.log();
 console.log('+-----------------------------+');
-console.log('| ARWEAVE STATUS MONITOR V1.0 |');
-console.log('| Francesco Adamo -- 06/17/21 |');
+console.log('| ARWEAVE STATUS MONITOR V1.1 |');
+console.log('| Francesco Adamo -- 06/23/21 |');
 console.log('+-----------------------------+');
+console.log();
 
 // CHANGELOG
-// V1.0 <06/17/21> initial public release
+// 06/23/21 V1.1: minor refinements and fixes
+// 06/17/21 V1.0: initial public release
+
+const { program } = require('commander');
+program.option('-i, --refresh-interval <sec>', 'local data refresh time, seconds', 60);
+program.option('-t, --refresh-totals <min>', 'network data refresh time, minutes', 10);
+program.option('-a, --averages-stack <min>', 'time stack for averages calculation, minutes', 60);
+program.parse(process.argv);
+const options = program.opts();
 
 const refreshInterval = parseInt(options.refreshInterval) * 1000;
 const refreshTotals = 60 / parseInt(options.refreshInterval) * parseInt(options.refreshTotals);
 const maxStack = 60 / parseInt(options.refreshInterval) * parseInt(options.averagesStack);
-
 const terabyte = 1024 * 1024 * 1024 * 1024;
 
 const dataSizeArray = [];
@@ -39,10 +39,9 @@ start(); // first run
 const interval = setInterval(start, refreshInterval);
 
 async function start() {
-    console.log();
-    console.log('-----------------------------')
+    console.log('-------------------------------')
     console.log('check: ' + (new Date()).toLocaleString());
-    console.log('-----------------------------')
+    console.log('-------------------------------')
     console.log();
 
     const previousIndex = currentIndex;
@@ -123,4 +122,5 @@ async function start() {
         console.log('retrying...');
         currentIndex = previousIndex; // revert index
     }
+    console.log();
 }
