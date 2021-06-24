@@ -22,6 +22,7 @@ Run ```node calculator -r <your_randomx_hashrate> -s <random_read_GiB/s>``` to e
 Run ```node peers``` to get a peers connection list to be easily passed to your Arweave node when starting it to massively speed up the bootstrapping process. The peers are ordered by latency, fastest first. By default it will return the top 50 peers, but this can be changed with the parameter ```-n <peers_number>```.
 
 # Updates
+06/24/21: Peers lister tool added.
 06/23/21: Benchmark tool added. Calculator tool updated to V1.1 with a new, more accurate, estimation formula.
 
 # Known issues
