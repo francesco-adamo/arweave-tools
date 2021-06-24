@@ -23,7 +23,8 @@ Run ```node peers``` to get a peers connection list to be easily passed to your 
 
 # Updates
 06/24/21: Peers lister tool added. <br/>
-06/23/21: Benchmark tool added. Calculator tool updated to V1.1 with a new, more accurate, estimation formula.
+06/23/21: Benchmark tool added. Calculator tool updated to V1.1 with a new, more accurate, estimation formula. <br/>
+06/17/21: Initial public release.
 
 # Known issues
 Sometimes the network sends inaccurate data. When the software detects it and prints an error message just wait for the next cycle update (if running the monitor tool) or just launch the tool again.
