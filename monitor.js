@@ -8,6 +8,7 @@ console.log('+-----------------------------+');
 console.log();
 
 // CHANGELOG
+// 03/07/22 V1.2: adding port param
 // 06/23/21 V1.1: minor refinements and fixes
 // 06/17/21 V1.0: initial public release
 
@@ -15,12 +16,14 @@ const { program } = require('commander');
 program.option('-i, --refresh-interval <sec>', 'local data refresh time, seconds', 60);
 program.option('-t, --refresh-totals <min>', 'network data refresh time, minutes', 10);
 program.option('-a, --averages-stack <min>', 'time stack for averages calculation, minutes', 60);
+program.option('-p, --miner-port <port_number>', 'listening port from miner', 1984);
 program.parse(process.argv);
 const options = program.opts();
 
 const refreshInterval = parseInt(options.refreshInterval) * 1000;
 const refreshTotals = 60 / parseInt(options.refreshInterval) * parseInt(options.refreshTotals);
 const maxStack = 60 / parseInt(options.refreshInterval) * parseInt(options.averagesStack);
+const port = parseInt(options.minerPort)
 const terabyte = 1024 * 1024 * 1024 * 1024;
 
 const dataSizeArray = [];
@@ -50,7 +53,8 @@ async function start() {
 
     try {
         // LOCAL NODE
-        const localResponse = await axios.get('http://localhost:1984/metrics');
+	const url = 'http://localhost:' + port + '/metrics'
+        const localResponse = await axios.get(url);
 
         const currentDataSize = localResponse.data.split('v2_index_data_size ')[3].split('\n')[0];
         const currentBlocks = localResponse.data.split('arweave_storage_blocks_stored ')[3].split('\n')[0];
