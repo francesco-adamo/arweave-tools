@@ -1,5 +1,4 @@
 const axios = require('axios');
-const { exec } = require('child_process');
 
 console.log();
 console.log('+---------------------------+');
@@ -10,6 +9,23 @@ console.log();
 
 // CHANGELOG
 // 06/24/21 V1.0: initial public release
+
+axios.interceptors.request.use(function (config) {
+      config.metadata = { startTime: new Date()}
+      return config;
+}, function (error) {
+      return Promise.reject(error);
+});
+
+axios.interceptors.response.use(function (response) {
+      response.config.metadata.endTime = new Date()
+      response.duration = response.config.metadata.endTime - response.config.metadata.startTime
+      return response;
+}, function (error) {
+      error.config.metadata.endTime = new Date();
+      error.duration = error.config.metadata.endTime - error.config.metadata.startTime;
+      return Promise.reject(error);
+});
 
 const { program } = require('commander');
 program.option('-n, --number <num>', 'number of peers to use, ordered by fastest', 50);
@@ -33,7 +49,7 @@ async function start() {
         const promises = [];
         for (let k = 0; k < peers.length; k++) {
             if (peers[k].startsWith('127.0.0')) continue;
-            promises.push(execPromise('ping ' + peers[k].split(':')[0] + ' -c 1 -w 2'));
+            promises.push(axios.get('http://' + peers[k] + '/block/height/770811').catch(function(err){return err}))
         }
         const responses = await Promise.all(promises);
         console.log(' DONE!');
@@ -42,7 +58,7 @@ async function start() {
         console.log();
         const list = [];
         for (let k = 0; k < responses.length; k++) {
-            const time = responses[k].includes('time=') ? parseFloat(responses[k].split(/time=| ms/)[1]) : Infinity;
+            const time = responses[k].status == 200 ? responses[k].duration : Infinity;
             console.log(peers[k] + ' ms: ' + time);
             list.push([peers[k], time]);
         }
@@ -63,17 +79,4 @@ async function start() {
         console.log('terminating...');
     }
     console.log();
-}
-
-function execPromise(command) {
-    return new Promise(resolve => {
-        const program = exec(command);
-        let output = '';
-        program.stdout.on('data', (data) => {
-            output += data;
-        });
-        program.on('exit', (code) => {
-            resolve(output);
-        });
-    });
 }
